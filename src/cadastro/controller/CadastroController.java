@@ -38,13 +38,13 @@ public class CadastroController implements CadastroRepository {
 
     @Override
     public void cadastrar(Cadastro cadastro) {
-        // Verificar existência
+        // Verificar se o produto já existe
         if (buscarNaCollection(cadastro.getCodigo()) != null) {
             System.out.println("Não podemos cadastrar o produto na vitrine.");
             System.out.println("\nJá temos esse produto cadastrado na vitrine virtual.");
             return;
         }
-        // Cadastra na vitrine se não houver um já cadastrado
+        // Cadastrar produto
         listaProdutos.add(cadastro);
         System.out.println("O produto com o código " + cadastro.getCodigo() + " foi adicionado na "
                 + "nossa vitrine virtual.");
