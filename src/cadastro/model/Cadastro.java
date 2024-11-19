@@ -49,15 +49,20 @@ public abstract class Cadastro {
 	System.out.println("**********************************"
 			+ "\n  Dados de cadastro de produto"
 			+ "\n**********************************");
-	System.out.println("Código do aparelho: " + this.codigo);
-	System.out.println("Marca do aparelho: " + this.marca);
-	System.out.println("Digite o código referente ao Sistema Operacional"
+	System.out.println("- Código do aparelho: " + this.codigo);
+	System.out.println("- Marca do aparelho: " + this.marca);
+	System.out.println("- Sistema Operacional"
 			+ "\n1- IOS"
-			+ "\n2- Android" + this.sistemaOperarioca);
-	System.out.println("Digite o preço (R$): " + this.preco);
-	System.out.println("Digite o tipo de aparelho: "
+			+ "\n2- Android"
+			+ "n3- Windows"
+			+ "n4- Linux"
+			+ "\nSistema do aparelho: " + this.sistemaOperarioca);
+	System.out.println("Preço (R$): " + this.preco);
+	System.out.println("Tipo: "
 			+ "\n1- Celular"
-			+ "\n2- Tablet" + this.tipo);
+			+ "\n2- Tablet"
+			+ "\n3- PC"
+			+ "\nTipo do Aparelho: " + this.tipo);
 		
 	}
 }

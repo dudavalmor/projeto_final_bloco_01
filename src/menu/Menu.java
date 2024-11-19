@@ -18,10 +18,11 @@ public class Menu {
 		CadastroController cadastro = new CadastroController();
 		
 		Scanner leia = new Scanner(System.in);
-		
+		boolean txt = false;
 		int codigo, sistemaOperarioca, tipo, opcao, chip, memoriaCel, memoriaPC, notePC;
-		String marca, operadora, processador;
+		String marca, operadora, processador, nomeArquivo;
 		float preco;
+		
 		
 		System.out.println("\nProdutos Cadastrados\n");
 		
@@ -50,10 +51,10 @@ public class Menu {
 			System.out.println("               CELLSHOP DA GEN               ");
 			System.out.println("                                             ");
 			System.out.println("*********************************************");
-			System.out.println("       1- Cadastrar celular                  ");
-			System.out.println("       2- Listar estoque                     ");
-			System.out.println("       3- Buscar celular por código          ");
-			System.out.println("       4- Atualizar cadastro de celular      ");
+			System.out.println("       1- Cadastrar produto                  ");
+			System.out.println("       2- Visualizar vitrine virtual         ");
+			System.out.println("       3- Buscar produto por código          ");
+			System.out.println("       4- Atualizar cadastro de produto      ");
 			System.out.println("       5- Apagar produto do estoque          ");
 			System.out.println("       6- Cadastros do dia                   ");
 			System.out.println("       7- Relatório de Estoque               ");
@@ -96,7 +97,7 @@ public class Menu {
 				System.out.println("Digite o NÚMERO referente ao SIstema Operacional:"
 						+ "\n1- IOS"
 						+ "\n2- Android"
-						+ "\n3- PC");
+						+ "\n3- PC\n");
 				sistemaOperarioca = leia.nextInt();
 				if(sistemaOperarioca < 1 || sistemaOperarioca > 3) {
 					System.out.println("Opação inválida. Tente novamente");
@@ -113,7 +114,7 @@ public class Menu {
 				System.out.println("Digite o número referente a tipo de aparelho"
 						+ "\n1- Celular"
 						+ "\n2- Tablet"
-						+ "\n3- PC");
+						+ "\n3- PC\n");
 				tipo = leia.nextInt();
 				if (tipo < 1 || tipo > 3) {
 					System.out.println("Opção inválida. Tente novamente.");
@@ -132,8 +133,7 @@ public class Menu {
 				case 2 ->{
 					System.out.println("O tablet com conexão com chip: "
 							+ "\n1- Sim"
-							+ "\n2- Não"
-							+ "  ");
+							+ "\n2- Não\n");
 					chip = leia.nextInt();
 					if (chip < 1 || chip > 2) {
 						System.out.println("Opção inválida. Tente novamente.");
@@ -178,6 +178,8 @@ public class Menu {
 				codigo = leia.nextInt();
 				
 				cadastro.procurarPorCodigo(codigo);
+				keyPress();
+				break;
 				
 			case 4:
 				System.out.println(Cores.TEXT_WHITE + "Atualizar produto\n\n");
@@ -194,7 +196,7 @@ public class Menu {
 					marca = leia.nextLine();
 					System.out.println("Digite o NÚMERO referente ao SIstema Operacional:"
 							+ "\n1- IOS"
-							+ "\n2- Android");
+							+ "\n2- Android\n");
 					sistemaOperarioca = leia.nextInt();
 					if (sistemaOperarioca < 1 || sistemaOperarioca > 2) {
 						System.out.println("Opção inválida. Tente novamente.");
@@ -205,7 +207,7 @@ public class Menu {
 					System.out.println("Digite o número referente a tipo de aparelho"
 							+ "\n1- Celular"
 							+ "\n2- Tablet"
-							+ "\n3- PC");
+							+ "\n3- PC\n");
 					tipo = leia.nextInt();
 					if(tipo < 1 || tipo > 3) {
 						System.out.println("Opção inválida. Tente novamente.");
@@ -225,8 +227,7 @@ public class Menu {
 					case 2 ->{
 						System.out.println("O tablet com conexão com chip: "
 								+ "\n1- Sim"
-								+ "\n2- Não"
-								+ "  ");
+								+ "\n2Não\n");
 						chip = leia.nextInt();
 						if(chip < 1 || chip > 2) {
 							System.out.println("Opção inválida. Tente novamente.");
@@ -252,28 +253,27 @@ public class Menu {
 				
 				keyPress();
 				break;
-				
+			
 			case 6:
-				System.out.println(Cores.TEXT_WHITE + "Exportar cadastros do dia para um arquivo\n");
-				String nomeArquivo;
-				
-				while (true) {
-					System.out.println("Nome do arquivo, deve terminar com .txt (ex: nomeArquivos.txt): ");
-					leia.skip("\\R:");
-					nomeArquivo = leia.nextLine();
-					
-					if(nomeArquivo.endsWith(".txt")) {
-						break;
-					} else {
-						System.out.println(Cores.TEXT_RED_BOLD + "O nome do arquivo deve terminar "
-								+ "com .txt. Por favor, tente novamente." + Cores.TEXT_RESET);
-					}
-				}
-				
-				String caminhoArquivo = "./" + nomeArquivo;
-				cadastro.cadastrosDia(caminhoArquivo);
+				System.out.println(Cores.TEXT_WHITE + "Cadastros do dia (Em breve)" );
 				keyPress();
 				break;
+
+			case 7:
+				
+				System.out.println(Cores.TEXT_WHITE + "Exportar cadastros do dia para um arquivo\n");
+				System.out.println("\nNome do arquivo, deve terminar com .txt (ex: nomeArquivos.txt): ");
+				nomeArquivo = leia.nextLine();
+				if(nomeArquivo.endsWith(".txt")) {
+					String caminhoArquivo = "./" + nomeArquivo;
+					cadastro.cadastrosDia(caminhoArquivo);
+					
+					keyPress();
+					break;
+				} else {
+					System.out.println(Cores.TEXT_RED_BOLD + "O nome do arquivo deve terminar "
+							+ "com .txt. Por favor, tente novamente." + Cores.TEXT_RESET);
+				}
 				
 			case 8: 
 				System.out.println("   Relatório de estoque   ");
