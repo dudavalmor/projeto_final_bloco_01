@@ -312,6 +312,5 @@ public class Menu {
 			System.out.println(Cores.TEXT_RED_BOLD + "    Você pressionou uma tecla diferente     " + Cores.TEXT_RESET);
 		}
 	}
-
-
 }
+
