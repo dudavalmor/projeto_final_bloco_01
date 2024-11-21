@@ -258,24 +258,8 @@ public class Menu {
 				System.out.println(Cores.TEXT_WHITE + "Cadastros do dia (Em breve)" );
 				keyPress();
 				break;
-
-			case 7:
 				
-				System.out.println(Cores.TEXT_WHITE + "Exportar cadastros do dia para um arquivo\n");
-				System.out.println("\nNome do arquivo, deve terminar com .txt (ex: nomeArquivos.txt): ");
-				nomeArquivo = leia.nextLine();
-				if(nomeArquivo.endsWith(".txt")) {
-					String caminhoArquivo = "./" + nomeArquivo;
-					cadastro.cadastrosDia(caminhoArquivo);
-					
-					keyPress();
-					break;
-				} else {
-					System.out.println(Cores.TEXT_RED_BOLD + "O nome do arquivo deve terminar "
-							+ "com .txt. Por favor, tente novamente." + Cores.TEXT_RESET);
-				}
-				
-			case 8: 
+			case 7: 
 				System.out.println("   Relatório de estoque   ");
 			    cadastro.gerarRelatorioEstoque();
 			    keyPress();
